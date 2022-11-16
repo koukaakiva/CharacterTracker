@@ -2,7 +2,7 @@ package com.revature.CharacterTracker.Models;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "characters")
 public class Character {
     @Id
     @GeneratedValue
@@ -22,6 +22,17 @@ public class Character {
 
     @ManyToOne
     private Novel fromNovel;
+
+    protected Character() {
+    }
+
+    public Character(String name, String description, String quote, boolean isBiggerThanABreakBox, Novel fromNovel) {
+        this.name = name;
+        this.description = description;
+        this.quote = quote;
+        this.isBiggerThanABreakBox = isBiggerThanABreakBox;
+        this.fromNovel = fromNovel;
+    }
 
     public Long getId() {
         return id;
@@ -64,14 +75,6 @@ public class Character {
     }
 
     public void setFromNovel(Novel fromNovel) {
-        this.fromNovel = fromNovel;
-    }
-
-    public Character(String name, String description, String quote, boolean isBiggerThanABreakBox, Novel fromNovel) {
-        this.name = name;
-        this.description = description;
-        this.quote = quote;
-        this.isBiggerThanABreakBox = isBiggerThanABreakBox;
         this.fromNovel = fromNovel;
     }
 }
