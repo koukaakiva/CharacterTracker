@@ -1,9 +1,9 @@
 package com.revature.CharacterTracker.Models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.revature.CharacterTracker.Models.Enums.Genre;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Novel {
@@ -18,5 +18,15 @@ public class Novel {
     private String author;
 
     @Column
-    private String genre;
+    private Genre genre;
+
+    @OneToMany
+    @Transient
+    private List<Character> characters;
+
+    public Novel(String title, String author, Genre genre) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+    }
 }
