@@ -34,7 +34,7 @@ public class NovelService {
 
     public static Novel getByTitle(String title){
         Novel result = novelRepository.findByTitle(title);
-        if(result == null) throw new InvalidRequestException("No novel found with title " + title + ".");
+        if(result == null) throw new InvalidRequestException("No novel found with title: " + title + ".");
         return result;
     }
 }

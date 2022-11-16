@@ -16,32 +16,6 @@ import java.util.List;
 public class NovelController {
 
     @CrossOrigin
-    @GetMapping(value = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Novel> getAll(HttpServletResponse resp) {
-        try{
-            resp.setStatus(200);
-            return NovelService.getAll();
-        }catch (NetworkException e){
-            resp.setStatus(e.getStatusCode());
-            System.out.println(e.getMessage());
-            return new ArrayList<Novel>();
-        }
-    }
-
-    @CrossOrigin
-    @GetMapping(value = "/getByTitle", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Novel getByTitle(@Param("novel") String novel, HttpServletResponse resp) {
-        try{
-            resp.setStatus(200);
-            return NovelService.getByTitle(novel);
-        }catch (NetworkException e){
-            resp.setStatus(e.getStatusCode());
-            System.out.println(e.getMessage());
-            return null;
-        }
-    }
-
-    @CrossOrigin
     @PostMapping(value = "/register", consumes = "application/json")
     public @ResponseBody void register(@RequestBody NewNovelRequest request, HttpServletResponse resp) {
         try {
@@ -50,6 +24,32 @@ public class NovelController {
         }catch (NetworkException e){
             resp.setStatus(e.getStatusCode());
             System.out.println(e.getMessage());
+        }
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Novel> getAll(HttpServletResponse resp) {
+        try{
+            resp.setStatus(200);
+            return NovelService.getAll();
+        }catch (NetworkException e){
+            resp.setStatus(e.getStatusCode());
+            System.out.println(e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/getByTitle", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Novel getByTitle(@Param("novel") String title, HttpServletResponse resp) {
+        try{
+            resp.setStatus(200);
+            return NovelService.getByTitle(title);
+        }catch (NetworkException e){
+            resp.setStatus(e.getStatusCode());
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }
