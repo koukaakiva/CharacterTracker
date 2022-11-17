@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import HomeHeader from "./HomeHeader";
+import atlas from "../Images/atlas.jpg";
+import celtic_woman from "../Images/celtic_woman.jpg";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -29,8 +31,7 @@ export default function Home() {
                 id="image-circle"
                 style={{
                   display: "inline-block",
-                  backgroundImage:
-                    'url("//cdn.pixabay.com/photo/2015/11/19/21/11/atlas-1052011_1280.jpg")',
+                  backgroundImage: `url(${atlas})`,
                 }}
               />
               <h2>Novels</h2>
@@ -42,8 +43,7 @@ export default function Home() {
                 id="image-circle"
                 style={{
                   display: "inline-block",
-                  backgroundImage:
-                    'url("//cdn.pixabay.com/photo/2016/12/04/02/01/celtic-woman-1880944_1280.jpg")',
+                  backgroundImage: `url(${celtic_woman})`,
                 }}
               />
               <h2>Characters</h2>
