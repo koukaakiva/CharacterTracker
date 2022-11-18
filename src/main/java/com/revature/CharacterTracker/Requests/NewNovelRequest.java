@@ -7,6 +7,8 @@ public class NewNovelRequest {
     private String author;
     private Genre genre;
 
+    private String description;
+
     public NewNovelRequest() {
     }
 
@@ -22,12 +24,17 @@ public class NewNovelRequest {
         return genre;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return "NewNovelRequest{" +
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", genre=" + genre +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

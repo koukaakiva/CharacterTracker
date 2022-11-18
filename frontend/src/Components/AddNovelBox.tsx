@@ -1,8 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import plus from "../Images/plus.png";
 
 export default function AddNovelBox() {
+  const navigate = useNavigate();
+
+  function navigateTo(destination: string) {
+    navigate("/" + destination);
+    window.location.reload();
+  }
+
   return (
-    <div className="templatemo_product_box">
+    <a
+      className="templatemo_product_box"
+      onClick={() => navigateTo("NewNovel")}
+    >
       <h1>Add Novel</h1>
       <div style={{ width: "100%", textAlign: "center", display: "flex" }}>
         <img
@@ -17,6 +28,6 @@ export default function AddNovelBox() {
         />
       </div>
       <div className="cleaner">&nbsp;</div>
-    </div>
+    </a>
   );
 }

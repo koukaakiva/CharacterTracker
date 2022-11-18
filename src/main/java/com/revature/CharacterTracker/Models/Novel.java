@@ -19,6 +19,9 @@ public class Novel {
     @Column
     private Genre genre;
 
+    @Column
+    private String description;
+
     @OneToMany
     @Transient
     private List<Character> characters;
@@ -26,10 +29,11 @@ public class Novel {
     protected Novel() {
     }
 
-    public Novel(String title, String author, Genre genre) {
+    public Novel(String title, String author, Genre genre, String description) {
         this.title = title;
         this.author = author;
         this.genre = genre;
+        this.description = description;
     }
 
     public Long getId() {
@@ -46,6 +50,10 @@ public class Novel {
 
     public Genre getGenre() {
         return genre;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public List<Character> getCharacters() {

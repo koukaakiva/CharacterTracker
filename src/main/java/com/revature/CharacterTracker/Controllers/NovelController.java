@@ -21,6 +21,7 @@ public class NovelController {
         try {
             resp.setStatus(201);
             NovelService.register(request);
+            System.out.println(request); //TODO remove this
         }catch (NetworkException e){
             resp.setStatus(e.getStatusCode());
             System.out.println(e.getMessage());

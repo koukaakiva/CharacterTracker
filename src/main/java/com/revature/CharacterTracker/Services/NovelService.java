@@ -21,7 +21,8 @@ public class NovelService {
         Novel novel = new Novel(
                 request.getTitle(),
                 request.getAuthor(),
-                request.getGenre()
+                request.getGenre(),
+                request.getDescription()
         );
         novelRepository.save(novel);
     }
