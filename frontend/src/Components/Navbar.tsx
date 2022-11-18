@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import HomeHeader from "./HomeHeader";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -9,23 +10,26 @@ export default function Navbar() {
   }
 
   return (
-    <div id="templatemo_menu">
-      <ul>
-        <li>
-          <a className="current" onClick={() => navigateTo("")}>
-            Home
-          </a>
-        </li>
-        <li>
-          <a onClick={() => navigateTo("Novels")}>Novels</a>
-        </li>
-        <li>
-          <a onClick={() => navigateTo("Characters")}>Characters</a>
-        </li>
-        <li>
-          <a onClick={() => navigateTo("Search")}>Search</a>
-        </li>
-      </ul>
-    </div>
+    <>
+      <div id="templatemo_menu">
+        <ul>
+          <li>
+            <a className="current" onClick={() => navigateTo("")}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a onClick={() => navigateTo("Novels")}>Novels</a>
+          </li>
+          <li>
+            <a onClick={() => navigateTo("Characters")}>Characters</a>
+          </li>
+          <li>
+            <a onClick={() => navigateTo("Search")}>Search</a>
+          </li>
+        </ul>
+      </div>
+      <HomeHeader />
+    </>
   );
 }

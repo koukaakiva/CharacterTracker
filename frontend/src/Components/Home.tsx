@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import HomeHeader from "./HomeHeader";
 import atlas from "../Images/atlas.jpg";
 import celtic_woman from "../Images/celtic_woman.jpg";
 
@@ -13,7 +12,6 @@ export default function Home() {
 
   return (
     <>
-      <HomeHeader />
       <div
         id="templatemo_content_right"
         style={{

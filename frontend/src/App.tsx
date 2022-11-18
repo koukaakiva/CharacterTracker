@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
+import Novels from "./Components/Novels";
 
 //Free CSS Templates from www.templatemo.com
 import "./Styles/templatemo_style.css";
@@ -12,6 +13,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Novels" element={<Novels />} />
         </Routes>
       </BrowserRouter>
     </div>
