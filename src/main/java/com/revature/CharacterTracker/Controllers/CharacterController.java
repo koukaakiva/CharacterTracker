@@ -21,6 +21,7 @@ public class CharacterController {
     public @ResponseBody void register(@RequestBody NewCharacterRequest request, HttpServletResponse resp) {
         try {
             resp.setStatus(201);
+            System.out.println(request);
             CharacterService.register(request);
         }catch (NetworkException e){
             resp.setStatus(e.getStatusCode());

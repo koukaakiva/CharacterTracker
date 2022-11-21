@@ -25,7 +25,7 @@ public class CharacterService {
                 request.getDescription(),
                 request.getQuote(),
                 request.isBiggerThanABreakBox(),
-                request.getFromNovel()
+                NovelService.getByID(request.getFromNovelID())
         );
         characterRepository.save(character);
     }

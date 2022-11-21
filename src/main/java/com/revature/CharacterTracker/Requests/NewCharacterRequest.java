@@ -7,7 +7,7 @@ public class NewCharacterRequest {
     private String description;
     private String quote;
     private boolean isBiggerThanABreakBox;
-    private Novel fromNovel;
+    private Long fromNovelID;
 
     public NewCharacterRequest() {
     }
@@ -28,8 +28,8 @@ public class NewCharacterRequest {
         return isBiggerThanABreakBox;
     }
 
-    public Novel getFromNovel() {
-        return fromNovel;
+    public Long getFromNovelID() {
+        return fromNovelID;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class NewCharacterRequest {
                 ", description='" + description + '\'' +
                 ", quote='" + quote + '\'' +
                 ", isBiggerThanABreakBox=" + isBiggerThanABreakBox +
-                ", fromNovel=" + fromNovel +
+                ", fromNovelID=" + fromNovelID +
                 '}';
     }
 }

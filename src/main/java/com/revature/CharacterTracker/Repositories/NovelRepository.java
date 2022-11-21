@@ -13,4 +13,7 @@ public interface NovelRepository extends JpaRepository<Novel, Long> {
 
     @Query(value = "SELECT * FROM novels WHERE title = ?1", nativeQuery = true)
     Novel findByTitle(String title);
+
+    @Query(value = "SELECT * FROM novels WHERE id = ?1", nativeQuery = true)
+    Novel findByID(long id);
 }

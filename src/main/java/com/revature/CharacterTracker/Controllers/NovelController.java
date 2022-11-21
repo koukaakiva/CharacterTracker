@@ -53,4 +53,17 @@ public class NovelController {
             return null;
         }
     }
+
+    @CrossOrigin
+    @GetMapping(value = "/getByID", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Novel getByID(@Param("id") long id, HttpServletResponse resp) {
+        try{
+            resp.setStatus(200);
+            return NovelService.getByID(id);
+        }catch (NetworkException e){
+            resp.setStatus(e.getStatusCode());
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 }

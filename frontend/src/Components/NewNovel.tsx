@@ -13,11 +13,6 @@ export default function NewNovel() {
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
-  function navigateTo(destination: string) {
-    navigate("/" + destination);
-    window.location.reload();
-  }
-
   async function registerNovel(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     API.post("novel/register", {
@@ -26,8 +21,8 @@ export default function NewNovel() {
       genre: genre,
       description: description,
     })
-      .then(() => navigateTo("Novels"))
-      .catch(() => alert("Error"));
+      .then(() => navigate(-1))
+      .catch((error) => alert(error));
   }
 
   return (
@@ -51,13 +46,6 @@ export default function NewNovel() {
           onChange={(event) => setAuthor(event.target.value)}
         />
         <br />
-        {/* <input
-          className="feedback-input"
-          type="text"
-          placeholder="Genre"
-          autoComplete="genre"
-          onChange={(event) => setGenre(event.target.value)}
-        /> */}
         <select
           className="feedback-input"
           value={genre}
@@ -67,7 +55,9 @@ export default function NewNovel() {
         >
           {Object.keys(Genre).map((key) => (
             <option key={key} value={key}>
-              {key}
+              {key == "NULL"
+                ? "Genre"
+                : key.substring(0, 1) + key.substring(1).toLowerCase()}
             </option>
           ))}
         </select>
@@ -80,7 +70,7 @@ export default function NewNovel() {
         />
         <br />
         <button data-testid="submit-signup" type="submit">
-          Register Novel
+          Register
         </button>
       </form>
     </div>

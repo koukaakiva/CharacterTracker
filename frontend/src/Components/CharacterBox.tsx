@@ -3,12 +3,19 @@ import { useNavigate } from "react-router-dom";
 
 type Props = {
   id: number;
-  title: string;
-  author: string;
+  name: string;
   description: string;
+  quote: string;
+  isBiggerThanABreadBox: boolean;
 };
 
-const NovelBox = ({ id, title, author, description }: Props) => {
+const NovelBox = ({
+  id,
+  name,
+  description,
+  quote,
+  isBiggerThanABreadBox,
+}: Props) => {
   const navigate = useNavigate();
 
   function navigateTo(destination: string) {
@@ -18,14 +25,13 @@ const NovelBox = ({ id, title, author, description }: Props) => {
 
   return (
     <div className="templatemo_product_box">
-      <h1>
-        {title} <span>(by {author})</span>
-      </h1>
+      <h1>{name}</h1>
       <img src={image} alt="image" />
       <div className="product_info">
+        <h2>{quote}</h2>
         <p>{description}</p>
         <div className="detail_button">
-          <a onClick={() => navigateTo("Novel?id=" + id)}>Detail</a>
+          <a onClick={() => navigateTo("Character?id=" + id)}>Detail</a>
         </div>
       </div>
       <div className="cleaner">&nbsp;</div>

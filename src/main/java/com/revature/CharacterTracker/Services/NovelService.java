@@ -38,4 +38,10 @@ public class NovelService {
         if(result == null) throw new InvalidRequestException("No novel found with title: " + title + ".");
         return result;
     }
+
+    public static Novel getByID(long id) {
+        Novel result = novelRepository.findByID(id);
+        if(result == null) throw new InvalidRequestException("No novel found with id: " + id + ".");
+        return result;
+    }
 }

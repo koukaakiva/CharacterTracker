@@ -4,7 +4,7 @@ import { AxiosResponse } from "axios";
 import NovelBox from "./NovelBox";
 import AddNovelBox from "./AddNovelBox";
 import Genre from "../Types/Genre";
-import Novel from "../Types/Novel";
+import Novel from "../Types/Novel.type";
 
 export default function Novels() {
   const [novels, setNovels] = useState<Novel[]>([]);
@@ -13,6 +13,7 @@ export default function Novels() {
     await API.get("novel/getAll")
       .then((response: AxiosResponse) => {
         setNovels(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -39,6 +40,7 @@ export default function Novels() {
       >
         {novels.map((novel, i) => (
           <NovelBox
+            id={novel.id}
             title={novel.title}
             author={novel.author}
             description={novel.description}
