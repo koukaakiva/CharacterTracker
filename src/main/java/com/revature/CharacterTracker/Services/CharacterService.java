@@ -37,6 +37,12 @@ public class CharacterService {
         return results;
     }
 
+    public static Character getByID(Long id){
+        Character result = characterRepository.findByID(id);
+        if(result == null) throw new InvalidRequestException("No character found with id: " + id + ".");
+        return result;
+    }
+
     public static Character getByName(String name){
         Character result = characterRepository.findByName(name);
         if(result == null) throw new InvalidRequestException("No character found with name: " + name + ".");

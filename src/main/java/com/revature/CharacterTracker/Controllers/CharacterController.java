@@ -43,6 +43,19 @@ public class CharacterController {
     }
 
     @CrossOrigin
+    @GetMapping(value = "/getByID", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Character getByID(@Param("id") Long id, HttpServletResponse resp) {
+        try{
+            resp.setStatus(200);
+            return CharacterService.getByID(id);
+        }catch (NetworkException e){
+            resp.setStatus(e.getStatusCode());
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @CrossOrigin
     @GetMapping(value = "/getByName", produces = MediaType.APPLICATION_JSON_VALUE)
     public Character getByName(@Param("name") String name, HttpServletResponse resp) {
         try{

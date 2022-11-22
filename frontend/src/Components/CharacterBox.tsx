@@ -9,7 +9,7 @@ type Props = {
   isBiggerThanABreadBox: boolean;
 };
 
-const NovelBox = ({
+const CharacterBox = ({
   id,
   name,
   description,
@@ -28,7 +28,9 @@ const NovelBox = ({
       <h1>{name}</h1>
       <img src={image} alt="image" />
       <div className="product_info">
-        <h2>{quote}</h2>
+        <h2>
+          "<i>{quote}</i>"
+        </h2>
         <p>{description}</p>
         <div className="detail_button">
           <a onClick={() => navigateTo("Character?id=" + id)}>Detail</a>
@@ -38,4 +40,4 @@ const NovelBox = ({
     </div>
   );
 };
-export default NovelBox;
+export default CharacterBox;
