@@ -1,10 +1,8 @@
 import { useState } from "react";
 import API from "../utils/ApiConfig";
-import { AxiosResponse } from "axios";
 import { useNavigate } from "react-router-dom";
 //Free css template from Zach Saucier
 import "../Styles/form.css";
-import Genre from "../Types/Genre";
 
 export default function NewCharacter() {
   const params = new URLSearchParams(window.location.search);

@@ -1,5 +1,6 @@
 package com.revature.CharacterTracker.Models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.revature.CharacterTracker.Models.Enums.Genre;
 import javax.persistence.*;
 import java.util.List;
@@ -22,8 +23,8 @@ public class Novel {
     @Column
     private String description;
 
-    @OneToMany
-    @Transient
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "fromNovel")
+    @JsonManagedReference
     private List<Character> characters;
 
     protected Novel() {
@@ -58,5 +59,23 @@ public class Novel {
 
     public List<Character> getCharacters() {
         return characters;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append('{');
+        for(Character c : characters){
+            sb.append(c.getName()).append(", ");
+        }
+        sb.append('}');
+        return "Novel{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", genre=" + genre +
+                ", description='" + description + '\'' +
+                ", characters=" + sb +
+                '}';
     }
 }

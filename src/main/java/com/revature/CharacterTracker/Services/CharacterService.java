@@ -1,6 +1,7 @@
 package com.revature.CharacterTracker.Services;
 
 import com.revature.CharacterTracker.Models.Character;
+import com.revature.CharacterTracker.Models.Novel;
 import com.revature.CharacterTracker.Repositories.CharacterRepository;
 import com.revature.CharacterTracker.Requests.NewCharacterRequest;
 import com.revature.CharacterTracker.Requests.UpdateCharacterRequest;
@@ -39,6 +40,12 @@ public class CharacterService {
     public static Character getByName(String name){
         Character result = characterRepository.findByName(name);
         if(result == null) throw new InvalidRequestException("No character found with name: " + name + ".");
+        return result;
+    }
+
+    public static List<Character> getByNovel(Novel novel) {
+        List<Character> result = characterRepository.findByNovel(novel.getId());
+        if(result == null) throw new InvalidRequestException("No character found in novel: " + novel + ".");
         return result;
     }
 

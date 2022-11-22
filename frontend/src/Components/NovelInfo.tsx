@@ -6,11 +6,13 @@ import Novel from "../Types/Novel.type";
 import CharacterBox from "./CharacterBox";
 import AddCharacterBox from "./AddCharacterBox";
 import image from "../Images/templatemo_image_02.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function NovelInfo() {
   const params = new URLSearchParams(window.location.search);
   const id: string | null = params.get("id");
   const [novel, setNovel] = useState<Novel>();
+  const navigate = useNavigate();
 
   async function getNovel() {
     await API.get("novel/getByID?id=" + id)
@@ -20,6 +22,8 @@ export default function NovelInfo() {
       })
       .catch((error) => {
         console.log(error);
+        alert("No novel found with id " + id + ". Redirectig...");
+        navigate(-1);
       });
   }
 

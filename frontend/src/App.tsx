@@ -5,6 +5,7 @@ import Novels from "./Components/Novels";
 import NewNovel from "./Components/NewNovel";
 import NovelInfo from "./Components/NovelInfo";
 import NewCharacter from "./Components/NewCharacter";
+import Test from "./Components/Test";
 
 //Free CSS Templates from www.templatemo.com
 import "./Styles/templatemo_style.css";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/NewNovel" element={<NewNovel />} />
           <Route path="/Novel" element={<NovelInfo />} />
           <Route path="NewCharacter" element={<NewCharacter />} />
+          <Route path="/Test" element={<Test />} />
         </Routes>
       </BrowserRouter>
     </div>
