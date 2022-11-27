@@ -24,9 +24,9 @@ export default function Navbar() {
           <li>
             <a onClick={() => navigateTo("Characters")}>Characters</a>
           </li>
-          <li>
+          {/* <li>
             <a onClick={() => navigateTo("Search")}>Search</a>
-          </li>
+          </li> */}
         </ul>
       </div>
       <HomeHeader />

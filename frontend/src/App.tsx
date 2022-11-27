@@ -10,6 +10,7 @@ import Characters from "./Components/Characters";
 //Free CSS Templates from www.templatemo.com
 import "./Styles/templatemo_style.css";
 import CharacterInfo from "./Components/CharacterInfo";
+import EditCharacter from "./Components/EditCharacter";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Characters" element={<Characters />} />
           <Route path="NewCharacter" element={<NewCharacter />} />
           <Route path="/Character" element={<CharacterInfo />} />
+          <Route path="EditCharacter" element={<EditCharacter />} />
           <Route path="/Test" element={<Test />} />
         </Routes>
       </BrowserRouter>

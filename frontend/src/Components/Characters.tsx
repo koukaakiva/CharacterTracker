@@ -3,9 +3,10 @@ import API from "../utils/ApiConfig";
 import { AxiosResponse } from "axios";
 import CharacterBox from "./CharacterBox";
 import Character from "../Types/Character.type";
+import CharacterResponse from "../Types/CharacterResponse.type";
 
 export default function Characters() {
-  const [characters, setCharacters] = useState<Character[]>([]);
+  const [characters, setCharacters] = useState<CharacterResponse[]>([]);
 
   async function getCharacters() {
     await API.get("character/getAll")
@@ -38,11 +39,11 @@ export default function Characters() {
       >
         {characters.map((character, i) => (
           <CharacterBox
-            id={character.id}
-            name={character.name}
-            description={character.description}
-            quote={character.quote}
-            isBiggerThanABreadBox={character.isBiggerThanABreadBox}
+            id={character.character.id}
+            name={character.character.name}
+            description={character.character.description}
+            quote={character.character.quote}
+            isBiggerThanABreadBox={character.character.isBiggerThanABreadBox}
             key={i}
           />
         ))}

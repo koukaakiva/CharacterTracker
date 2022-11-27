@@ -3,6 +3,7 @@ package com.revature.CharacterTracker.Controllers;
 import com.revature.CharacterTracker.Models.Character;
 import com.revature.CharacterTracker.Requests.NewCharacterRequest;
 import com.revature.CharacterTracker.Requests.UpdateCharacterRequest;
+import com.revature.CharacterTracker.Responses.CharacterResponse;
 import com.revature.CharacterTracker.Services.CharacterService;
 import com.revature.CharacterTracker.Utilities.customExceptions.NetworkException;
 import org.springframework.data.repository.query.Param;
@@ -31,7 +32,7 @@ public class CharacterController {
 
     @CrossOrigin
     @GetMapping(value = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Character> getAll(HttpServletResponse resp) {
+    public List<CharacterResponse> getAll(HttpServletResponse resp) {
         try{
             resp.setStatus(200);
             return CharacterService.getAll();
@@ -44,7 +45,7 @@ public class CharacterController {
 
     @CrossOrigin
     @GetMapping(value = "/getByID", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Character getByID(@Param("id") Long id, HttpServletResponse resp) {
+    public CharacterResponse getByID(@Param("id") Long id, HttpServletResponse resp) {
         try{
             resp.setStatus(200);
             return CharacterService.getByID(id);
@@ -57,7 +58,7 @@ public class CharacterController {
 
     @CrossOrigin
     @GetMapping(value = "/getByName", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Character getByName(@Param("name") String name, HttpServletResponse resp) {
+    public CharacterResponse getByName(@Param("name") String name, HttpServletResponse resp) {
         try{
             resp.setStatus(200);
             return CharacterService.getByName(name);

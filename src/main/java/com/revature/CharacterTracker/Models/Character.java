@@ -1,8 +1,6 @@
 package com.revature.CharacterTracker.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 
 @Entity(name = "characters")
@@ -23,7 +21,7 @@ public class Character {
     @Column
     private boolean isBiggerThanABreakBox;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="fromNovel", referencedColumnName = "id")
     @JsonBackReference
     private Novel fromNovel;
